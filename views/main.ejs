@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:wb="http://open.weibo.com/wb">
+<head>
+<%- include common/include %>
+
+<script type="text/javascript">
+$(function(){
+});
+</script>
+</head>
+
+<body>
+	<%- include common/header %>
+
+	<div class="banner"></div>
+
+	<div class="container sections-wrapper">
+	<div class="row">
+	<%
+	console.log(subpage,'xxx');
+	if(subpage=="sub_home"){
+	%>
+	<%- include content/sub_home %>
+	<%
+	}else if(subpage=="sub_blog"){
+	%>
+	<%- include content/sub_home %>
+	<%
+	}else if(subpage=="sub_about"){
+	%>
+	<%- include content/sub_about %>
+	<%
+	}else if(subpage=="sub_guest"){
+	%>
+	<%- include content/sub_guest %>
+	<%
+	}else if(subpage=="sub_single"){
+	%>
+	<%- include content/sub_home %>
+	<%
+	}
+	%>
+	
+	</div><!--//row-->
+	</div><!--//masonry-->
+
+	<%- include common/footer %>
+</body>
+</html>
+
