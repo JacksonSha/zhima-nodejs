@@ -1,17 +1,5 @@
-<%@page pageEncoding="UTF-8"%>
-<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 <script type="text/template" id="singleView-template">
 <h3 class="title">{{title}}</h3>
-<!--
-<div class="info">
-<span style="background: none;padding: 0;">发布时间：2015-01-09</span>
-<span style="background: none;padding: 0;">编辑：杨青</span>
-<span style="background: none;padding: 0;">阅读（10003）</span>
-</div>
--->
 <div class="info">
 <span class="date">{{createDt}}</span>
 <span class="author">{{author}}</span>
@@ -24,24 +12,24 @@
 
 <script type="text/javascript">
 $(function(){
+	var rootUrl = "";
 	var pathname = window.location.pathname;
 	var paths = pathname.replace(rootUrl, "").split("/", -1);
 	var singleView = function(artId){
-		$.post(rootUrl+"/article/view/"+artId,null,
+		$.get(rootUrl+"/service/article/view/"+artId,null,
 				function(resp){
+			console.log(resp);
 			var el = $(".single");
 			$(el).empty();
 			var artTmp=_.template($("#singleView-template").html());
-			var art=resp;
+			var art=resp[0];
 			$(el).append(artTmp({
-				artId: art.id,
-				title: art.title,
-				headImg: art.headImg,
-				contentDesc: art.contentDesc,
-				contentHtml: art.contentHtml,
-				author: art.author,
-				clickNum: art.clickNum,
-				createDt: $.format.date(new Date(art.createDt), 'yyyy-MM-dd')
+				artId: art.ART_ID,
+				title: art.ART_TITLE,
+				contentHtml: art.ART_CONTENT_HTML,
+				author: art.ART_AUTHOR,
+				clickNum: art.ART_CLICK_NUM,
+				createDt: $.format.date(new Date(art.ART_CREATE_DT), 'yyyy-MM-dd')
 			}));
 		});
 	};

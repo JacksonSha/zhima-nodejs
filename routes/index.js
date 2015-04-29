@@ -1,5 +1,4 @@
 var express = require('express');
-var caller = require('./modules/ws-caller.js');
 var router = express.Router();
 
 /* GET home page. */
@@ -8,6 +7,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/blog', function(req, res, next) {
+  res.render('main', { subpage: 'sub_blog' });
+});
+
+router.get('/blog/:page', function(req, res, next) {
   res.render('main', { subpage: 'sub_blog' });
 });
 
@@ -20,7 +23,7 @@ router.get('/guest', function(req, res, next) {
 });
 
 router.get('/single/:aid', function(req, res, next) {
-  res.render('main', {  });
+  res.render('main', { subpage: 'sub_single' });
 });
 
 //router.post('/show/:subpage', function(req, res, next) {

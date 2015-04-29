@@ -5,6 +5,14 @@
 
 <script type="text/javascript">
 $(function(){
+	$(window).bind('scroll', function() {
+	    if ($(window).scrollTop() > 30) {
+	        $('header').addClass('navbar-fixed-top');
+	    }
+	    else {
+	        $('header').removeClass('navbar-fixed-top');
+	    }
+	});
 });
 </script>
 </head>
@@ -24,7 +32,7 @@ $(function(){
 	<%
 	}else if(subpage=="sub_blog"){
 	%>
-	<%- include content/sub_home %>
+	<%- include content/sub_blog %>
 	<%
 	}else if(subpage=="sub_about"){
 	%>
@@ -36,11 +44,11 @@ $(function(){
 	<%
 	}else if(subpage=="sub_single"){
 	%>
-	<%- include content/sub_home %>
+	<%- include content/sub_single %>
 	<%
 	}
 	%>
-	
+
 	</div><!--//row-->
 	</div><!--//masonry-->
 
