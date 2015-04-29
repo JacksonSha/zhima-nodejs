@@ -11,7 +11,8 @@ var pool = mysql.createPool({
 
 var resHead = {'Content-Type':'text/json','Encodeing':'utf8'};
 var resError = {
-  500: {code: 500, desc: 'Unknown Error'},
+  200: {code:200, desc: 'Success'},
+  500: {code: 500, desc: 'Server Error'},
   601: {code: 601, desc: 'Error in connection database'}
 };
 
