@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:wb="http://open.weibo.com/wb">
 <head>
-<%- include common/include %>
+<%- include common/include.html %>
 
 <script type="text/javascript">
 $(function(){
@@ -18,7 +18,7 @@ $(function(){
 </head>
 
 <body>
-	<%- include common/header %>
+	<%- include common/header.html %>
 
 	<div class="banner"></div>
 
@@ -28,23 +28,23 @@ $(function(){
 	console.log(subpage,'xxx');
 	if(subpage=="sub_home"){
 	%>
-	<%- include content/sub_home %>
+	<%- include content/sub_home.html %>
 	<%
 	}else if(subpage=="sub_blog"){
 	%>
-	<%- include content/sub_blog %>
+	<%- include content/sub_blog.html %>
 	<%
 	}else if(subpage=="sub_about"){
 	%>
-	<%- include content/sub_about %>
+	<%- include content/sub_about.html %>
 	<%
 	}else if(subpage=="sub_guest"){
 	%>
-	<%- include content/sub_guest %>
+	<%- include content/sub_guest.html %>
 	<%
 	}else if(subpage=="sub_single"){
 	%>
-	<%- include content/sub_single %>
+	<%- include content/sub_single.html %>
 	<%
 	}
 	%>
@@ -52,7 +52,7 @@ $(function(){
 	</div><!--//row-->
 	</div><!--//masonry-->
 
-	<%- include common/footer %>
+	<%- include common/footer.html %>
 </body>
 </html>
 
